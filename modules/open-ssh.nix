@@ -6,7 +6,7 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ "neiton" ];
+      AllowUsers = [ "anulore" ];
     };
   };
 

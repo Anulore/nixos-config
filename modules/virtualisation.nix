@@ -9,7 +9,7 @@
       daemon.settings.features.cdi = true;
     };
   };
-  users.extraGroups.docker.members = [ "neiton" ];
+  users.extraGroups.docker.members = [ "anulore" ];
 
   environment.systemPackages = with pkgs; [
     qemu
@@ -17,11 +17,11 @@
 
   programs.virt-manager.enable = true;
 
-  users.groups.libvirtd.members = [ "neiton" ];
+  users.groups.libvirtd.members = [ "anulore" ];
 
   virtualisation.libvirtd.enable = true;
 
   virtualisation.spiceUSBRedirection.enable = true;
 
-  users.users.neiton.extraGroups = [ "kvm" ];
+  users.users.anulore.extraGroups = [ "kvm" ];
 }

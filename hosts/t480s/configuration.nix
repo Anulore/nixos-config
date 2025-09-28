@@ -7,7 +7,7 @@
   imports = [
     ./hardware-configuration.nix
 
-    inputs.sops-nix.nixosModules.sops
+    # inputs.sops-nix.nixosModules.sops
 
     ../../modules/internationalisation.nix
     ../../modules/gc.nix
@@ -15,6 +15,7 @@
     ../../modules/usb.nix
     ../../modules/linux-kernel.nix
     ../../modules/bootloader.nix
+    ../../modules/fingerprint-scanner.nix
     ../../modules/nix-settings.nix
     ../../modules/services.nix
     ../../modules/users.nix
@@ -30,17 +31,17 @@
     ../../modules/open-ssh.nix
     ../../modules/security.nix
     ../../modules/android.nix
-    ../../modules/yubikey.nix
+    # ../../modules/yubikey.nix
     ../../modules/firmware-update.nix
   ];
 
-  sops.defaultSopsFile = ../../secrets/secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
+  # sops.defaultSopsFile = ../../secrets/secrets.yaml;
+  # sops.defaultSopsFormat = "yaml";
 
-  sops.age.keyFile = "/etc/sops/age/keys.txt";
+  # sops.age.keyFile = "/home/anulore/.config/sops/age/keys.txt";
 
-  sops.secrets.example-key = { };
-  sops.secrets."myservice/my_subdir/my_secret" = { };
+  # sops.secrets.example-key = { };
+  # sops.secrets."myservice/my_subdir/my_secret" = { };
 
   environment.variables.EDITOR = "nvim";
 

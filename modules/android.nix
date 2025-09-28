@@ -1,5 +1,5 @@
 { ... }:
 {
   programs.adb.enable = true;
-  users.users.neiton.extraGroups = [ "adbusers" ];
+  users.users.anulore.extraGroups = [ "adbusers" ];
 }

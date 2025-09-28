@@ -1,58 +1,58 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    sops-nix.url = "github:Mic92/sops-nix";
+    # sops-nix.url = "github:Mic92/sops-nix";
 
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+    # lanzaboote = {
+    #   url = "github:nix-community/lanzaboote/v0.4.2";
 
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      lanzaboote,
+      # lanzaboote,
       ...
     }@inputs:
     {
       nixosConfigurations = {
-        t490s = nixpkgs.lib.nixosSystem {
+        t480s = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/t490s/configuration.nix
+            ./hosts/t480s/configuration.nix
 
-            lanzaboote.nixosModules.lanzaboote
+            # lanzaboote.nixosModules.lanzaboote
 
-            (
-              { pkgs, lib, ... }:
-              {
+            # (
+            #   { pkgs, lib, ... }:
+            #   {
 
-                environment.systemPackages = [
-                  pkgs.sbctl
-                ];
+            #     environment.systemPackages = [
+            #       pkgs.sbctl
+            #     ];
 
-                boot.loader.systemd-boot.enable = lib.mkForce false;
+            #     boot.loader.systemd-boot.enable = lib.mkForce false;
 
-                boot.lanzaboote = {
-                  enable = true;
-                  pkiBundle = "/var/lib/sbctl";
-                };
-              }
-            )
+            #     boot.lanzaboote = {
+            #       enable = true;
+            #       pkiBundle = "/var/lib/sbctl";
+            #     };
+            #   }
+            # )
           ];
         };
 
-        x280 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/x280/configuration.nix
-          ];
-        };
+        # x280 = nixpkgs.lib.nixosSystem {
+        #   system = "x86_64-linux";
+        #   specialArgs = { inherit inputs; };
+        #   modules = [
+        #     ./hosts/x280/configuration.nix
+        #   ];
+        # };
 
       };
     };
